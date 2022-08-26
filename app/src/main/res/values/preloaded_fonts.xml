@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
+        <item>@font/aclonica</item>
+        <item>@font/beth_ellen</item>
+        <item>@font/bevan</item>
+        <item>@font/lemon</item>
+        <item>@font/paytone_one</item>
+        <item>@font/short_stack</item>
+        <item>@font/spicy_rice</item>
+    </array>
+</resources>

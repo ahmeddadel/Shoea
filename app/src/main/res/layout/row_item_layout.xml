@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <!-- Object of Shoe class to bind the layout with it -->
+        <variable
+            name="shoeData"
+            type="com.dolla.shoestore.models.Shoe" />
+    </data>
+
+    <!-- ViewGroup of the Layout (CardView) to make each item of the ShoeItem looks nice and simple -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:padding="5dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp">
+
+        <!-- ViewGroup of the Layout (ConstraintLayout) to handle the positions of each ViewChild to fit different screen size and appear in the same position as shown -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp">
+
+
+            <!-- TextView of ShoeName label -->
+            <TextView
+                android:id="@+id/tvNameLabel"
+                style="@style/tvItemLabel"
+                android:text="@string/name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- TextView of ShoeName value -->
+            <TextView
+                android:id="@+id/tvNameValue"
+                style="@style/tvItemValue"
+                android:text="@{shoeData.name}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvNameLabel"
+                app:layout_constraintStart_toEndOf="@+id/tvNameLabel" />
+
+
+            <!-- TextView of CompanyName label -->
+            <TextView
+                android:id="@+id/tvCompanyLabel"
+                style="@style/tvItemLabel"
+                android:text="@string/company"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNameLabel" />
+
+            <!-- TextView of CompanyName value -->
+            <TextView
+                android:id="@+id/tvCompanyValue"
+                style="@style/tvItemValue"
+                android:text="@{shoeData.company}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvCompanyLabel"
+                app:layout_constraintStart_toEndOf="@+id/tvCompanyLabel" />
+
+
+            <!-- TextView of ShoeSize label -->
+            <TextView
+                android:id="@+id/tvSizeLabel"
+                style="@style/tvItemLabel"
+                android:text="@string/size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCompanyLabel" />
+
+            <!-- TextView of ShoeSize value -->
+            <TextView
+                android:id="@+id/tvSizeValue"
+                style="@style/tvItemValue"
+                android:text="@{shoeData.size}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvSizeLabel"
+                app:layout_constraintStart_toEndOf="@+id/tvSizeLabel" />
+
+
+            <!-- TextView of Description label -->
+            <TextView
+                android:id="@+id/tvDescriptionLabel"
+                style="@style/tvItemLabel"
+                android:text="@string/description2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSizeLabel" />
+
+            <!-- TextView of Description value -->
+            <TextView
+                android:id="@+id/tvDescriptionValue"
+                style="@style/tvItemValue"
+                android:text="@{shoeData.description}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvDescriptionLabel"
+                app:layout_constraintStart_toEndOf="@+id/tvDescriptionLabel" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!-- Object of ShoeViewModel class to bind the layout with it -->
+        <variable
+            name="shoeDetailViewModel"
+            type="com.dolla.shoestore.models.ShoeViewModel" />
+
+        <!-- Object of Shoe class to bind the layout with it -->
+        <variable
+            name="shoeData"
+            type="com.dolla.shoestore.models.Shoe" />
+    </data>
+
+    <!-- ViewGroup of the Layout (ConstraintLayout) to handle the positions of each ViewChild to fit different screen size and appear in the same position as shown -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/shoedetail_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".screens.shoedetail.ShoeDetailFragment">
+
+        <!-- TextView to Show the screen title -->
+        <TextView
+            android:id="@+id/tvAddTitle"
+            style="@style/TitleStyle"
+            android:text="@string/add_shoe"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- TextView of ShoeName label -->
+        <TextView
+            android:id="@+id/tvShoeName"
+            style="@style/tvDetailesStyle"
+            android:text="@string/shoe_name"
+            app:layout_constraintBottom_toTopOf="@+id/etShoeName"
+            app:layout_constraintStart_toStartOf="@+id/etShoeName" />
+
+        <!-- EditText of ShoeName value -->
+        <EditText
+            android:id="@+id/etShoeName"
+            style="@style/etDetailesStyle"
+            android:layout_marginTop="60dp"
+            android:hint="@string/enter_shoe_name"
+            android:inputType="textPersonName"
+            android:text="@={shoeData.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAddTitle"
+            tools:ignore="TextContrastCheck" />
+
+
+        <!-- TextView of CompanyName label -->
+        <TextView
+            android:id="@+id/tvCompanyName"
+            style="@style/tvDetailesStyle"
+            android:text="@string/company_name"
+            app:layout_constraintBottom_toTopOf="@+id/etCompanyName"
+            app:layout_constraintStart_toStartOf="@+id/etCompanyName" />
+
+        <!-- EditText of CompanyName value -->
+        <EditText
+            android:id="@+id/etCompanyName"
+            style="@style/etDetailesStyle"
+            android:layout_marginTop="50dp"
+            android:hint="@string/enter_company_name"
+            android:inputType="textPersonName"
+            android:text="@={shoeData.company}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etShoeName"
+            tools:ignore="TextContrastCheck" />
+
+
+        <!-- TextView of Description label -->
+        <TextView
+            android:id="@+id/tvDescription"
+            style="@style/tvDetailesStyle"
+            android:text="@string/description"
+            app:layout_constraintBottom_toTopOf="@+id/etDescription"
+            app:layout_constraintStart_toStartOf="@+id/etDescription" />
+
+        <!-- EditText of Description value -->
+        <EditText
+            android:id="@+id/etDescription"
+            style="@style/etDetailesStyle"
+            android:layout_marginTop="50dp"
+            android:hint="@string/enter_a_description"
+            android:inputType="textPersonName"
+            android:text="@={shoeData.description}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etCompanyName"
+            tools:ignore="TextContrastCheck" />
+
+
+        <!-- TextView of ShoeSize label -->
+        <TextView
+            android:id="@+id/tvShoeSize"
+            style="@style/tvDetailesStyle"
+            android:text="@string/shoe_size"
+            app:layout_constraintBottom_toTopOf="@+id/etShoeSize"
+            app:layout_constraintStart_toStartOf="@+id/etShoeSize" />
+
+        <!-- EditText of ShoeSize value -->
+        <EditText
+            android:id="@+id/etShoeSize"
+            style="@style/etDetailesStyle"
+            android:layout_marginTop="50dp"
+            android:hint="@string/enter_shoe_size"
+            android:inputType="numberDecimal"
+            android:text="@={shoeData.size}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etDescription"
+            tools:ignore="TextContrastCheck" />
+
+        <!-- Button to navigate the user back to the previous screen with a saving process -->
+        <Button
+            android:id="@+id/btSave"
+            style="@style/AddShoeButtonStyle"
+            android:onClick="@{() -> shoeDetailViewModel.onEventSave(shoeData.name, shoeData.size, shoeData.company, shoeData.description)}"
+            android:text="@string/save"
+            app:layout_constraintBottom_toTopOf="@id/btCancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Button to navigate the user back to the previous screen directly -->
+        <Button
+            android:id="@+id/btCancel"
+            style="@style/AddShoeButtonStyle"
+            android:text="@string/cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/btSave"
+            app:layout_constraintStart_toStartOf="@id/btSave" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".screens.instructions.InstructionsFragment">
+
+    <!-- ViewGroup of the Layout (ConstraintLayout) to handle the positions of each ViewChild to fit different screen size and appear in the same position as shown -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/instructions_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- TextView to Show the screen title -->
+        <TextView
+            android:id="@+id/tvInstructionsTitle"
+            style="@style/TitleStyle"
+            android:text="@string/instructions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- ScrollView to contain multiple lines of text without change the size of the container -->
+        <ScrollView
+            android:id="@+id/inst_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintBottom_toTopOf="@id/btNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvInstructionsTitle">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/short_stack"
+                android:lineSpacingMultiplier="1.25"
+                android:paddingTop="8dp"
+                android:text="@string/instructions_mesg"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+        </ScrollView>
+
+
+        <!-- Button to navigate the user to next screen -->
+        <Button
+            android:id="@+id/btNext"
+            style="@style/NextButtonStyle"
+            android:text="@string/next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inst_scroll" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

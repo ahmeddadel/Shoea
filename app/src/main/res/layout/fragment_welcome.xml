@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".screens.welcome.WelcomeFragment">
+
+    <!-- ViewGroup of the Layout (ConstraintLayout) to handle the positions of each ViewChild to fit different screen size and appear in the same position as shown -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/welcome_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- TextView to Show the screen title -->
+        <TextView
+            android:id="@+id/tvWelcomeTitle"
+            style="@style/TitleStyle"
+            android:text="@string/welcome_to_shoea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- TextView to Show the user's first part of his mail using safe-args -->
+        <TextView
+            android:id="@+id/tvUserEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@id/ivWelcomePhotos"
+            app:layout_constraintEnd_toEndOf="@id/tvWelcomeTitle"
+            app:layout_constraintStart_toStartOf="@id/tvWelcomeTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcomeTitle"
+            tools:text="User.123@domain.com" />
+
+        <!-- ImageView to Show the app welcome images  -->
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/ivWelcomePhotos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/welcomephotos"
+            app:layout_constraintBottom_toTopOf="@id/tvAboutStore"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcomeTitle"
+            app:riv_corner_radius="12dp"
+            tools:src="@drawable/shoe1" />
+
+        <!-- TextView to Show the app welcome messages  -->
+        <TextView
+            android:id="@+id/tvAboutStore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/short_stack"
+            android:padding="12dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/btGetStarted"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivWelcomePhotos"
+            tools:text="@string/msg_info_1" />
+
+        <!-- Button to navigate the user to next screen -->
+        <Button
+            android:id="@+id/btGetStarted"
+            style="@style/NextButtonStyle"
+            android:text="@string/next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAboutStore" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

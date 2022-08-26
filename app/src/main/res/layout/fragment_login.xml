@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".screens.login.LoginFragment">
+
+    <!-- ViewGroup of the Layout (ConstraintLayout) to handle the positions of each ViewChild to fit different screen size and appear in the same position as shown -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- TextView to Show a Hello! word to welcome the user at the beginning -->
+        <TextView
+            android:id="@+id/tvHello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24sp"
+            android:text="@string/hello"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="75sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- TextView to instruct the user what to do to access the app -->
+        <TextView
+            android:id="@+id/tvSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_in_or_creat_a_new_account"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tvHello"
+            app:layout_constraintStart_toStartOf="@+id/tvHello"
+            app:layout_constraintTop_toBottomOf="@+id/tvHello" />
+
+        <!-- ViewGroup (LinearLayout) to contain similar views along to each other in a vertical orientation -->
+        <LinearLayout
+            android:id="@+id/login_signup_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/buttons_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSign">
+
+            <!-- TextView of Email label -->
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24sp"
+                android:text="@string/e_mail"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/etEmail"
+                app:layout_constraintTop_toBottomOf="@+id/tvSign" />
+
+            <!-- EditText of Email value -->
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="@string/enter_your_e_mail_address"
+                android:inputType="textEmailAddress" />
+
+            <!-- TextView of Password label -->
+            <TextView
+                android:id="@+id/tvPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24sp"
+                android:text="@string/password"
+                android:textSize="18sp" />
+
+            <!-- textField of Password value wrapped with a container that have the eye button to hide the password when writing it -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="@string/enter_your_password"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- ViewGroup (LinearLayout) to contain similar views along to each other in a vertical orientation -->
+        <LinearLayout
+            android:id="@+id/buttons_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_signup_container">
+
+            <!-- Button to navigate the user to the app with a login process -->
+            <Button
+                android:id="@+id/btLogin"
+                style="@style/AuthButtonStyle"
+                android:background="@drawable/login_button"
+                android:text="@string/login"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tvOr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="2.5dp"
+                android:text="@string/or" />
+
+            <!-- Button to navigate the user to next screen with a sing-up process -->
+            <Button
+                android:id="@+id/btSignUp"
+                style="@style/AuthButtonStyle"
+                android:background="@drawable/sigup_button"
+                android:text="@string/signup"
+                android:textColor="@color/colorPrimary" />
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
