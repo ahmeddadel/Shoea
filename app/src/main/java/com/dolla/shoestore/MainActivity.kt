@@ -11,7 +11,6 @@ import com.dolla.shoestore.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     // Ahmed Adel
-    // 2020-07-01
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // setContentView(R.layout.activity_main)
