@@ -10,7 +10,6 @@ import androidx.navigation.ui.NavigationUI
 import com.dolla.shoestore.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    // AhmedAdel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // setContentView(R.layout.activity_main)
